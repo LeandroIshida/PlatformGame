@@ -11,11 +11,7 @@ public class FinishPoint : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             UnlockNewLevel();
-            //SceneController.instance.NextLevel();
-
-           
-            
-
+            SceneController.instance.NextLevel();
         }
     }
 
