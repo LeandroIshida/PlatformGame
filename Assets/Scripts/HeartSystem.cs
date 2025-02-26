@@ -12,6 +12,9 @@ public class HeartSystem : MonoBehaviour
     public Sprite HasHP;
     public Sprite DontHasHP;
 
+    //teste de game over
+    [SerializeField] GameObject gameover;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -63,6 +66,13 @@ public class HeartSystem : MonoBehaviour
         {
             GetComponent<Renderer>().enabled = false;
             Destroy(gameObject,1f);
+            GameOver(); 
         }
+    }
+
+    public void GameOver()
+    {
+        gameover.SetActive(true);
+        //Time.timeScale = 0;
     }
 }
