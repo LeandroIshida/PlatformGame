@@ -8,6 +8,7 @@ public class Dialogue : MonoBehaviour
     public Sprite profile;
     public string[] speechTxt;
     public string actorName;
+    public GameObject iconDialogue;
 
     public string playerTag = "Player"; // Define a tag do jogador no Inspector
     //public LayerMask playerLayer;
@@ -29,7 +30,7 @@ public class Dialogue : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && onRadious) 
+        if (Input.GetKeyDown(KeyCode.X) && onRadious) 
         {
             dc.Speech(profile, speechTxt, actorName);
         }
@@ -50,10 +51,12 @@ public class Dialogue : MonoBehaviour
         {
             //dc.Speech(profile, speechTxt, actorName);
             onRadious = true;
+            iconDialogue.SetActive(true);
         }
         else
         {
             onRadious = false;
+            iconDialogue.SetActive(false);
         }
     }
 
