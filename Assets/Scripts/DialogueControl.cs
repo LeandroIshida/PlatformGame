@@ -76,12 +76,19 @@ public class DialogueControl : MonoBehaviour
     private string[] sentences;
     private int index;
 
-    private bool isTyping = false; // Evita chamar `Speech` enquanto uma frase está sendo escrita
-    private bool isDialogueActive = false; // Evita que o diálogo seja chamado repetidamente
+    private bool isTyping = false; // Evita chamadas repetidas
+    private bool isDialogueActive = false; // Controla se o diálogo está ativo
+
+    private DialogueResponse dialogueResponse; // Referência ao sistema de resposta
+
+    private void Start()
+    {
+        dialogueResponse = FindAnyObjectByType<DialogueResponse>();
+    }
 
     public void Speech(Sprite p, string[] txt, string actorName)
     {
-        if (isDialogueActive) return; // Se já estiver ativo, não reinicia
+        if (isDialogueActive) return; // Evita reiniciar o diálogo se já estiver ativo
 
         isDialogueActive = true;
         dialogue.SetActive(true);
@@ -104,12 +111,12 @@ public class DialogueControl : MonoBehaviour
             yield return new WaitForSeconds(typingSpeed);
         }
 
-        isTyping = false; // Texto completo, pode avançar
+        isTyping = false; // Permite avançar para a próxima frase
     }
 
     public void NextSentence()
     {
-        if (isTyping) return; // Não avança se ainda estiver digitando
+        if (isTyping) return; // Evita pular enquanto digita
 
         if (index < sentences.Length - 1)
         {
@@ -118,15 +125,16 @@ public class DialogueControl : MonoBehaviour
         }
         else
         {
-            EndDialogue();
+            dialogueResponse.ShowResponsePanel(); // Exibe as opções de resposta
         }
     }
 
-    private void EndDialogue()
+    public void EndDialogue()
     {
         dialogue.SetActive(false);
         speechText.text = "";
         isDialogueActive = false; // Permite iniciar novo diálogo depois
     }
 }
+
 

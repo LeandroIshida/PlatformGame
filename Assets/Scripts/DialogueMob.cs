@@ -8,7 +8,7 @@ public class DialogueMob : MonoBehaviour
     public Sprite profile;
     public string[] speechTxt;
     public string actorName;
-    public GameObject iconDialogue;
+    
 
     public string playerTag = "Player"; // Define a tag do jogador no Inspector
     public float radius;
@@ -37,12 +37,12 @@ public class DialogueMob : MonoBehaviour
                 dc.Speech(profile, speechTxt, actorName);
                 onRadius = true;
             }
-            iconDialogue.SetActive(true);
+            
         }
         else
         {
             onRadius = false;
-            iconDialogue.SetActive(false);
+            
         }
     }
 
