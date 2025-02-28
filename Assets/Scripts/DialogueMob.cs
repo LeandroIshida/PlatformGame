@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Dialogue : MonoBehaviour
+public class DialogueMob : MonoBehaviour
 {
     public Sprite profile;
     public string[] speechTxt;
@@ -11,12 +11,10 @@ public class Dialogue : MonoBehaviour
     public GameObject iconDialogue;
 
     public string playerTag = "Player"; // Define a tag do jogador no Inspector
-    //public LayerMask playerLayer;
-    public float radious;
+    public float radius;
     private DialogueControl dc;
 
-    bool onRadious;
-
+    private bool onRadius;
 
     private void Start()
     {
@@ -28,34 +26,22 @@ public class Dialogue : MonoBehaviour
         Interact();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.X) && onRadious) 
-        {
-            dc.Speech(profile, speechTxt, actorName);
-        }
-    }
-
     public void Interact()
     {
-        /*Collider2D hit = Physics2D.OverlapCircle(transform.position, radious, playerLayer);
-
-        if (hit != null)
-        {
-            dc.Speech(profile, speechTxt, actorName);
-        }*/
-
-        Collider2D hit = Physics2D.OverlapCircle(transform.position, radious);
+        Collider2D hit = Physics2D.OverlapCircle(transform.position, radius);
 
         if (hit != null && hit.CompareTag(playerTag)) // Verifica se o Collider encontrado tem a Tag correta
         {
-            //dc.Speech(profile, speechTxt, actorName);
-            onRadious = true;
+            if (!onRadius) // Só inicia o diálogo uma vez
+            {
+                dc.Speech(profile, speechTxt, actorName);
+                onRadius = true;
+            }
             iconDialogue.SetActive(true);
         }
         else
         {
-            onRadious = false;
+            onRadius = false;
             iconDialogue.SetActive(false);
         }
     }
@@ -63,7 +49,6 @@ public class Dialogue : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, radious);
+        Gizmos.DrawWireSphere(transform.position, radius);
     }
-
 }
