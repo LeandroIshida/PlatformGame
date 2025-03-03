@@ -5406,9 +5406,8 @@ GameObject:
   - component: {fileID: 1756649850}
   - component: {fileID: 1756649849}
   - component: {fileID: 1756649848}
-  - component: {fileID: 1756649847}
-  - component: {fileID: 1756649852}
   - component: {fileID: 1756649853}
+  - component: {fileID: 1756649854}
   m_Layer: 0
   m_Name: MOB
   m_TagString: Untagged
@@ -5416,21 +5415,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1756649847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1756649846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61a9f9591a842164c84007eb5d4e9b69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  heart: {fileID: 1125658836}
-  blinkDuration: 2
-  blinkInterval: 0.2
 --- !u!50 &1756649848
 Rigidbody2D:
   serializedVersion: 4
@@ -5570,21 +5554,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1756649852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1756649846}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df60bf3bf8435bb40b414822b45ededf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 1125658835}
-  sr: {fileID: 1756649850}
-  speed: 3
 --- !u!114 &1756649853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5608,6 +5577,21 @@ MonoBehaviour:
   obstacleMask:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &1756649854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756649846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45afd30dfaf7bed478f9b5c06df0c43f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disappearTime: 3
+  reappearTime: 5
+  visionDamageEnemy: {fileID: 1756649853}
 --- !u!1 &1758702883
 GameObject:
   m_ObjectHideFlags: 0
@@ -6337,9 +6321,8 @@ GameObject:
   - component: {fileID: 2093668633}
   - component: {fileID: 2093668632}
   - component: {fileID: 2093668631}
-  - component: {fileID: 2093668630}
-  - component: {fileID: 2093668629}
   - component: {fileID: 2093668628}
+  - component: {fileID: 2093668635}
   m_Layer: 0
   m_Name: MOB (1)
   m_TagString: Untagged
@@ -6370,36 +6353,6 @@ MonoBehaviour:
   obstacleMask:
     serializedVersion: 2
     m_Bits: 64
---- !u!114 &2093668629
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2093668627}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df60bf3bf8435bb40b414822b45ededf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 1125658835}
-  sr: {fileID: 2093668633}
-  speed: 3
---- !u!114 &2093668630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2093668627}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61a9f9591a842164c84007eb5d4e9b69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  heart: {fileID: 1125658836}
-  blinkDuration: 2
-  blinkInterval: 0.2
 --- !u!50 &2093668631
 Rigidbody2D:
   serializedVersion: 4
@@ -6539,6 +6492,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2093668635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093668627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45afd30dfaf7bed478f9b5c06df0c43f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disappearTime: 3
+  reappearTime: 5
+  visionDamageEnemy: {fileID: 2093668628}
 --- !u!1 &2103988357
 GameObject:
   m_ObjectHideFlags: 0
